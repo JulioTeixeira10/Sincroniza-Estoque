@@ -12,7 +12,10 @@ with open("C:\\Users\\Usefr\\Desktop\\Estoque\\estoquefinal.txt", "w+") as t3:
 #Cria um dicionário que armazena como keys as ids e como value as quantidades do arquivo estoqueB+.txt
 dict1 = {}
 for line in file1:
-    dict1[line[0:7].strip()] = line[7:].strip()
+    if int(line[7:].strip()) < 0:
+        dict1[line[0:7].strip()] = "0"
+    else:
+        dict1[line[0:7].strip()] = line[7:].strip()
 
 #Cria uma lista que armazena as ids do arquivo IDsFC.txt
 l1 = []
